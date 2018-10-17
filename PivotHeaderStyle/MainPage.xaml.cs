@@ -42,7 +42,8 @@ namespace PivotHeaderStyle
 
         private void ChangeColorOfResourse_OnClick(object sender, RoutedEventArgs e)
         {
-            var mergedDict = Application.Current.Resources.MergedDictionaries.FirstOrDefault();//Сhanges by reference
+            //Color(value) changes by reference
+            var mergedDict = Application.Current.Resources.MergedDictionaries.Where(md => md.Source.OriginalString.Equals("ms-appx:///resourceDictionary.xaml")).FirstOrDefault();//Access to ResourseDictionary by source string
             var value = (SolidColorBrush)((Setter)((Style)mergedDict["Header"]).Setters[0]).Value;
             value.Color = color;
             Style back = (Style) mergedDict["Header"];
