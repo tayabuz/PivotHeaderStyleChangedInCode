@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="PivotHeaderStyle.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PivotHeaderStyle"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary Source="ms-appx:///resourceDictionary.xaml" />
+    </Page.Resources>
+    <Pivot x:Name="rootPivot">
+        <Pivot.Resources>
+            <Style TargetType="PivotHeaderItem" BasedOn="{StaticResource Header}" />
+        </Pivot.Resources>
+        <PivotItem x:Name="Pivot1" Header="Pivot 1"/>
+        <PivotItem x:Name="Pivot2" Header="Pivot 2"/>
+        <PivotItem x:Name="Pivot3" Header="Pivot 3"/>
+        <PivotItem>
+            <PivotItem.Header>
+                <Button x:Name="ChangeColorOfResourse" Click="ChangeColorOfResourse_OnClick" Content="Change Color"/>
+            </PivotItem.Header>
+        </PivotItem>
+    </Pivot>
+</Page>
