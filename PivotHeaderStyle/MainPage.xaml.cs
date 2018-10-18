@@ -44,9 +44,16 @@ namespace PivotHeaderStyle
         {
             //Color(value) changes by reference
             var mergedDict = Application.Current.Resources.MergedDictionaries.Where(md => md.Source.OriginalString.Equals("ms-appx:///resourceDictionary.xaml")).FirstOrDefault();//Access to ResourseDictionary by source string
-            var value = (SolidColorBrush)((Setter)((Style)mergedDict["Header"]).Setters[0]).Value;
+            /*var value = (SolidColorBrush)((Setter)((Style)mergedDict["Header"]).Setters[0]).Value;
             value.Color = color;
             Style back = (Style) mergedDict["Header"];
+            rootPivot.Resources[typeof(PivotHeaderItem)] = back;
+            color = Colors.Green;*/
+            var value = (Color) mergedDict["pivotColor"];
+            value = color;
+            var valueSetter = (SolidColorBrush)((Setter)((Style)mergedDict["Header"]).Setters[0]).Value;
+            valueSetter.Color = value;
+            Style back = (Style)mergedDict["Header"];
             rootPivot.Resources[typeof(PivotHeaderItem)] = back;
             color = Colors.Green;
         }
